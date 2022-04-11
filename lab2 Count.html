@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body
+      <canvas id="my_canvas" height="500" width="1000" style="border:1px solid black; background-color: green;">
+</canvas>
+    <h1 style="text-align:center">COUNT!!!</h1>
+  <p>Reach me if you can!!!</p>
+
+  </body>
+<button onclick="startCount()">Start count!</button>
+<input type="text" id="demo">
+<button onclick="stopCount()">Stop count!</button>
+
+<script>
+let counter = 0;
+let timeout ;
+let timer_on = 0;
+
+function timedCount() {
+  document.getElementById("demo").value = counter;
+  counter++;
+  timeout = setTimeout(timedCount, 500);
+}
+
+function startCount() {
+  if (!timer_on) {
+    timer_on = 1;
+    timedCount();
+  }
+}
+
+function stopCount() {
+  clearTimeout(timeout);
+  timer_on = 0;
+}
+</script>
+
+</body>
+</html>
